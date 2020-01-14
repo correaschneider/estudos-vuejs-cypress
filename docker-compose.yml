@@ -16,4 +16,4 @@ services:
             - httpd
         volumes:
             - ./cypress:/app/cypress
-            - ./docker/cypress/cypress.json:/app/cypress.json
+            - ./cypress/cypress.json:/app/cypress.json
