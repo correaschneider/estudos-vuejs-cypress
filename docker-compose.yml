@@ -14,8 +14,6 @@ services:
         container_name: cypress
         depends_on:
         - httpd
-        environment:
-        - CYPRESS_baseUrl=http://httpd
         command: npx cypress run
         volumes:
         - ./cypress:/app/cypress
