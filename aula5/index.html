@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs do jeito ninja</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+
+        <fieldset>
+            <label for="name">Nome:</label><br>
+            <input type="text" id="name" name="name" v-model="user.name">
+        </fieldset>
+
+        <fieldset>
+            <label for="phone">Telefone:</label><br>
+            <input type="text" id="phone" name="phone" v-model="user.phone">
+        </fieldset>
+
+        <fieldset>
+            <label for="news-sim">Deseja receber nossas novidades?</label><br>
+            <label>
+                <input type="radio" id="news-sim" name="news" v-model="user.news" value="Sim">
+                Sim
+            </label>
+            <label>
+                <input type="radio" id="news-nao" name="news" v-model="user.news" value="Não">
+                Não
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <label for="interest-soccer">Interesses:</label><br>
+            <label>
+                <input type="checkbox" name="interest" id="interest-soccer" v-model="user.interest" value="Futebol">
+                Futebol
+            </label>
+            <label>
+                <input type="checkbox" name="interest" id="interest-formula-1" v-model="user.interest" value="Fórmula 1">
+                Fórmula 1
+            </label>
+            <label>
+                <input type="checkbox" name="interest" id="interest-basketball" v-model="user.interest" value="Basquetebol">
+                Basquetebol
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <label for="know">Como nos conheceu?</label><br>
+            <select id="know" name="know" v-model="user.know">
+                <option value="">Selecione</option>
+                <option value="Google">Google</option>
+                <option value="TV">TV</option>
+                <option value="Revista">Revista</option>
+            </select>
+        </fieldset>
+
+        {{ user }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Vuejs do jeito ninja!",
+                user: {
+                    name: '',
+                    phone: '',
+                    news: '',
+                    interest: [],
+                    know: '',
+                }
+            }
+        })
+    </script>
+</body>
+</html>
