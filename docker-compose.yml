@@ -13,8 +13,7 @@ services:
         build: ./docker/cypress
         container_name: cypress
         depends_on:
-        - httpd
-        command: npx cypress run
+            - httpd
         volumes:
-        - ./cypress:/app/cypress
-        - ./docker/cypress/cypress.json:/app/cypress.json
+            - ./cypress:/app/cypress
+            - ./docker/cypress/cypress.json:/app/cypress.json

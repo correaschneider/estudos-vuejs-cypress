@@ -13,3 +13,5 @@ ENV CI=1
 RUN npm ci
 
 RUN npx cypress verify
+
+CMD [ "npx", "cypress", "run" ]
