@@ -7,3 +7,16 @@ services:
             - 8081:80
         volumes:
             - ./httpd:/usr/local/apache2/htdocs/
+
+    cypress:
+        image: cypress
+        build: ./docker/cypress
+        container_name: cypress
+        depends_on:
+        - httpd
+        environment:
+        - CYPRESS_baseUrl=http://httpd
+        command: npx cypress run
+        volumes:
+        - ./cypress:/app/cypress
+        - ./docker/cypress/cypress.json:/app/cypress.json
