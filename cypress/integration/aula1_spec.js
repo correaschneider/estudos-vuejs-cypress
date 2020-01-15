@@ -1,6 +1,6 @@
 context('Aula 1', () => {
   beforeEach(() => {
-    cy.visit('http://httpd/aula1')
+    cy.visit('aula1')
   })
 
   it('Interagindo com Aula 1', function () {
