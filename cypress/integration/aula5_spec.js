@@ -1,6 +1,6 @@
 describe('Aula 5', () => {
 	it('Interagindo com Aula 5', function () {
-		cy.visit('aula5/')
+		cy.visit('aula5')
 
 		cy
 			.get('#name')
