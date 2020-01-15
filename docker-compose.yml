@@ -11,7 +11,6 @@ services:
     cypress:
         image: cypress
         build: ./docker/cypress
-        container_name: cypress
         depends_on:
             - httpd
         volumes:
