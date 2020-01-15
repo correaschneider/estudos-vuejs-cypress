@@ -17,3 +17,4 @@ services:
         volumes:
             - ./cypress:/app/cypress
             - ./cypress/cypress.json:/app/cypress.json
+        command: sleep 3600
