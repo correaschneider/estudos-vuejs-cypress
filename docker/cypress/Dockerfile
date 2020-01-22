@@ -1,4 +1,5 @@
-FROM cypress/base:10
+# FROM cypress/base:10
+FROM cypress/browsers:chrome67
 
 ARG http_proxy
 ARG https_proxy
