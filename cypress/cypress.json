@@ -1,3 +1,4 @@
 {
-    "baseUrl": "http://httpd/"
+    "baseUrl": "http://httpd/",
+    "videoCompression": 1
 }
