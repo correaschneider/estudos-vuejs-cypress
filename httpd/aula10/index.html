@@ -13,7 +13,7 @@
     <div id="app">
         <h1>{{ title }}</h1>
 
-        <span class="name">{{ name }}</span> <br>
+        <span class="name">{{ name }}</span> <span class="feedback">{{ feedback }}</span> <br>
         <span class="nameUpper">{{ toUpperCase }}</span> <br>
         <span class="fullName">{{ fullName }}</span>
     </div>
@@ -25,6 +25,7 @@
             data: {
                 title: 'VueJS do jeito ninja',
                 name: '',
+                feedback: '',
                 firstName: '',
                 lastName: ''
             },
@@ -40,12 +41,16 @@
             },
 
             watch: {
-                name(newValue, oldValue) {
-                    console.log('newValue', newValue)
-                    console.log('oldValue', oldValue)
+                name(newValue) {
+                    this.updateUser()
+                }
+            },
+
+            methods: {
+                updateUser() {
+                    this.feedback = 'Nome do usuário atualizado!'
                 }
             }
-
         })
     </script>
 </body>
