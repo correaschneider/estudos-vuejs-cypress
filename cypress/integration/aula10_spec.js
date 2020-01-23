@@ -3,25 +3,29 @@ describe('Aula 10', () => {
 		cy.visit('aula10')
 
 		cy
-            .window()
-            .then(window => {
-                window.app.name = 'Taís Pereira Santos Freitas'
-                window.app.firstName = 'Rebeca'
-                window.app.lastName = 'Martins'
-            })
+			.window()
+			.then(window => {
+				window.app.name = 'Taís Pereira Santos Freitas'
+				window.app.firstName = 'Rebeca'
+				window.app.lastName = 'Martins'
+			})
 
-        cy
-            .get('.name')
-            .contains('Taís Pereira Santos Freitas')
+		cy
+			.get('.name')
+			.contains('Taís Pereira Santos Freitas')
 
-        cy
-            .get('.nameUpper')
-            .contains('TAÍS PEREIRA SANTOS FREITAS')
+		cy
+			.get('.nameUpper')
+			.contains('TAÍS PEREIRA SANTOS FREITAS')
 
-        cy
-            .get('.fullName')
-            .contains('Rebeca Martins')
+		cy
+			.get('.fullName')
+			.contains('Rebeca Martins')
 
-        cy.screenshot()
+		cy
+			.get('.feedback')
+			.contains('Nome do usuário atualizado!')
+
+		cy.screenshot()
 	})
 })
