@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>VueJS do jeito ninja</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+
+            beforeCreate: function () {
+                console.log('beforeCreate', 'title', this.title, 'el', this.$el)
+            },
+            created: function () {
+                console.log('created', 'title', this.title, 'el', this.$el)
+            },
+            beforeMount: function () {
+                console.log('beforeMount', 'title', this.title, 'el', this.$el)
+            },
+            mounted: function () {
+                console.log('mounted', 'title', this.title, 'el', this.$el)
+
+                this.title = 'Teste'
+            },
+            beforeUpdate: function () {
+                console.log('beforeUpdate', 'title', this.title, 'el', this.$el)
+            },
+            updated: function () {
+                console.log('updated', 'title', this.title, 'el', this.$el)
+            },
+
+            data: {
+                title: 'VueJS do jeito ninja',
+            }
+        })
+    </script>
+</body>
+</html>
