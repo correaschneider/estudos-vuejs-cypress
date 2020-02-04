@@ -11,72 +11,46 @@
 </head>
 <body>
     <div id="app">
-        <div class="container">
-            <title-form></title-form>
-            <title-list></title-list>
+        <div class="container mt-5">
+            <div class="row justify-content-md-center">
+                <div class="col-sm-6">
+                    <card>
+                        <h4 slot="title" class="card-title">Title</h4>
+                        <p slot="text" class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium beatae quos blanditiis. Praesentium natus distinctio aspernatur facere dolorum molestias ex ipsa provident esse inventore labore, veritatis dignissimos reiciendis vel adipisci.</p>
+                        <a slot="action" href="#" class="btn btn-primary">Go somewhere</a>
+                    </card>
+                </div>
+                <div class="col-sm-6">
+                    <card>
+                        <h4 slot="title" class="card-title">Title 2</h4>
+                        <template slot="text" >
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium beatae quos blanditiis. Praesentium natus distinctio aspernatur facere dolorum molestias ex ipsa provident esse inventore labore, veritatis dignissimos reiciendis vel adipisci.</p>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium beatae quos blanditiis. Praesentium natus distinctio aspernatur facere dolorum molestias ex ipsa provident esse inventore labore, veritatis dignissimos reiciendis vel adipisci.</p>
+                        </template>
+                        <a slot="action" href="#" class="btn btn-primary">Go somewhere</a>
+                    </card>
+                </div>
+            </div>
         </div>
     </div>
 
-    <template id="title-form">
+    <template id="card">
         <div class="card">
+            <img class="card-img-top" src="https://via.placeholder.com/350x150" alt="Alt da imagem" title="Title da imagem">
             <div class="card-body">
-                <div class="form-group">
-                    <label for="title">Título:</label>
-                    <input
-                        v-model="title"
-                        type="text" class="form-control" name="title" id="title" placeholder="Título" />
-                </div>
-
-                <button
-                    @click.stop.prevent="submit()"
-                    type="button" class="btn btn-primary">ENVIAR</button>
-            </div>
-        </div>
-    </template>
-
-    <template id="title-list">
-        <div class="card">
-            <div class="card-body">
-                <ul class="list-group">
-                    <li class="list-group-item active">Lista de títulos</li>
-                    <li v-for="item in list" class="list-group-item">{{ item.title }}</li>
-                </ul>
+                <slot name="title"></slot>
+                <slot name="text"></slot>
+                <slot name="action"></slot>
             </div>
         </div>
     </template>
 
     <script>
-        Vue.component('title-form', {
-            template: '#title-form',
+        Vue.component('card', {
+            template: '#card',
             data() {
                 return {
-                    title: ''
                 }
-            },
-            methods: {
-                submit() {
-                    this.$eventHub.$emit('submit', this.title)
-                    this.title = ''
-                }
-            }
-        })
-
-        Vue.component('title-list', {
-            template: '#title-list',
-            data() {
-                return {
-                    list: [
-                        { title: 'Teste' }
-                    ]
-                }
-            },
-            created() {
-                var vm = this
-                this.$eventHub.$on('submit', function(title) {
-                    if (title) {
-                        vm.list.push({title: title})
-                    }
-                })
             }
         })
 
@@ -84,10 +58,6 @@
 
         var app = new Vue({
             el: '#app',
-
-            data: {
-                title: 'VueJS do jeito ninja',
-            }
         })
     </script>
 </body>
